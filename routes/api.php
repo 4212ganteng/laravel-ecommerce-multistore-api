@@ -23,7 +23,17 @@ Route::post('/customer/register', [App\Http\Controllers\Api\AuthController::clas
 
 
 // store category
-Route::post('seller/category', [App\Http\Controllers\Api\CategoryController::class, 'store'])->middleware('auth:sanctum');
+Route::post('/seller/category', [App\Http\Controllers\Api\CategoryController::class, 'store'])->middleware('auth:sanctum');
 // get all categories
-Route::get('seller/category', [App\Http\Controllers\Api\CategoryController::class, 'index'])->middleware('auth:sanctum');
+Route::get('/seller/categories', [App\Http\Controllers\Api\CategoryController::class, 'index'])->middleware('auth:sanctum');
 
+
+// product
+Route::apiResource('/seller/products', App\Http\Controllers\Api\ProductController::class)->middleware('auth:sanctum');
+
+// update product
+Route::post('/seller/products/{id}', [App\Http\Controllers\Api\ProductController::class, 'update'])->middleware('auth:sanctum');
+
+
+// address
+Route::apiResource('/customer/addresses', App\Http\Controllers\Api\AdressController::class)->middleware('auth:sanctum');
