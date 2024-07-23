@@ -37,3 +37,6 @@ Route::post('/seller/products/{id}', [App\Http\Controllers\Api\ProductController
 
 // address
 Route::apiResource('/customer/addresses', App\Http\Controllers\Api\AdressController::class)->middleware('auth:sanctum');
+
+// order
+Route::post('/customer/orders', [App\Http\Controllers\Api\OrderController::class, 'store'])->middleware('auth:sanctum');

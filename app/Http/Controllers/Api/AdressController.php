@@ -30,6 +30,7 @@ class AdressController extends Controller
             'district' => 'required|string',
             'postal_code' => 'required|string',
             'address' => 'required|string',
+            'is_default' => 'boolean'
         ]);
 
         $adress = Adress::create([
@@ -40,6 +41,7 @@ class AdressController extends Controller
             'district' => $request->district,
             'postal_code' => $request->postal_code,
             'address' => $request->address,
+            'is_default' => $request->is_default
         ]);
 
 
@@ -62,6 +64,7 @@ class AdressController extends Controller
             'district' => 'required|string',
             'postal_code' => 'required|string',
             'address' => 'required|string',
+            'is_default' => 'boolean'
         ]);
 
         $address = Adress::find($id);
@@ -79,6 +82,7 @@ class AdressController extends Controller
             'district' => $request->district,
             'postal_code' => $request->postal_code,
             'address' => $request->address,
+            'is_default' => $request->is_default
         ]);
 
         return response()->json([

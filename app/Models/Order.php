@@ -25,4 +25,22 @@ class Order extends Model
         'transaction_number',
 
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function address()
+    {
+        return $this->belongsTo(Adress::class);
+    }
+
+    public function seller()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
 }
