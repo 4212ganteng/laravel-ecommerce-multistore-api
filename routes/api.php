@@ -40,3 +40,9 @@ Route::apiResource('/customer/addresses', App\Http\Controllers\Api\AdressControl
 
 // order
 Route::post('/customer/orders', [App\Http\Controllers\Api\OrderController::class, 'store'])->middleware('auth:sanctum');
+
+
+// store
+Route::get('/customer/stores', [App\Http\Controllers\Api\StoreController::class, 'index'])->middleware('auth:sanctum');
+// product by store
+Route::get('/customer/stores/{id}/products', [App\Http\Controllers\Api\StoreController::class, 'productByStore'])->middleware('auth:sanctum');
