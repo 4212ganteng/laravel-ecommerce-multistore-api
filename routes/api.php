@@ -46,3 +46,13 @@ Route::post('/customer/orders', [App\Http\Controllers\Api\OrderController::class
 Route::get('/customer/stores', [App\Http\Controllers\Api\StoreController::class, 'index'])->middleware('auth:sanctum');
 // product by store
 Route::get('/customer/stores/{id}/products', [App\Http\Controllers\Api\StoreController::class, 'productByStore'])->middleware('auth:sanctum');
+
+
+// update resi
+Route::put('/seller/orders/{id}/update-resi', [App\Http\Controllers\Api\OrderController::class, 'updateShippingNumber'])->middleware('auth:sanctum');
+
+// history order buyer
+Route::get('/customer/histories', [App\Http\Controllers\Api\OrderController::class, 'history'])->middleware('auth:sanctum');
+
+// history order seller
+Route::get('/seller/histories', [App\Http\Controllers\Api\OrderController::class, 'historySeller'])->middleware('auth:sanctum');
