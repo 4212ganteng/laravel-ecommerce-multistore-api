@@ -56,3 +56,7 @@ Route::get('/customer/histories', [App\Http\Controllers\Api\OrderController::cla
 
 // history order seller
 Route::get('/seller/histories', [App\Http\Controllers\Api\OrderController::class, 'historySeller'])->middleware('auth:sanctum');
+
+
+// get store live streaming
+Route::get('/seller/live-streaming', [App\Http\Controllers\Api\StoreController::class, 'liveStreaming'])->middleware('auth:sanctum');
