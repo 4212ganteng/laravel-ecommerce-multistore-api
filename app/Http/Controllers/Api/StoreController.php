@@ -34,4 +34,16 @@ class StoreController extends Controller
             'data' => $products
         ]);
     }
+
+    // get store live streaming
+    public function liveStreaming(Request $request)
+    {
+        $stores = User::where('roles','seller')->where('is_live_stream',true)->get();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'List data stores live streaming',
+            'data' => $stores
+        ]);
+    }
 }
